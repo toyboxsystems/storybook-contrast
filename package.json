@@ -1,0 +1,41 @@
+{
+    "name": "@contrast/addon-contrast",
+    "version": "0.0.0",
+    "description": "Figma handoff tool",
+    "keywords": [
+        "addon",
+        "storybook",
+        "handoff",
+        "inspect",
+        "properties",
+        "css"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/toyboxsystems/storybook-contrast.git"
+    },
+    "license": "MIT",
+    "main": "dist/register.js",
+    "files": [
+        "dist/**/*",
+        "README.md",
+        "*.js",
+        "*.d.ts"
+    ],
+    "scripts": {},
+    "dependencies": {
+        "@storybook/addons": "6.1.0-alpha.16",
+        "@storybook/api": "6.1.0-alpha.16",
+        "@storybook/client-api": "6.1.0-alpha.16",
+        "@storybook/components": "6.1.0-alpha.16",
+        "@storybook/node-logger": "6.1.0-alpha.16",
+        "@storybook/theming": "6.1.0-alpha.16",
+        "core-js": "^3.0.1",
+        "react": "^16.8.3",
+        "react-dom": "^16.8.3",
+        "ts-dedent": "^1.1.1"
+    },
+    "publishConfig": {
+        "access": "public"
+    }
+}
