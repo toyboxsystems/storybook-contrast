@@ -1,17 +1,11 @@
 {
     "name": "storybook-contrast",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "main": "dist/index.js",
     "description": "Contrast storybook integration",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/toyboxsystems/storybook-contrast.git"
-    },
+    "repository": "https://github.com/toyboxsystems/storybook-contrast.git",
     "license": "MIT",
-    "author": {
-        "name": "Contrast",
-        "email": "support@contrast.app"
-    },
+    "author": "Contrast <support@contrast.app>",
     "scripts": {
         "clean": "rimraf dist",
         "build": "npm run clean && babel src --ignore src/__tests__,src/__mocks__ --out-dir dist -s",
@@ -20,7 +14,6 @@
         "prepare": "npm run build",
         "example": "start-storybook -p 3000 -c ./example/.storybook -s ./example"
     },
-    "license": "MIT",
     "dependencies": {
         "@babel/standalone": "^7.0.0",
         "@storybook/addons": "^6.0.21",
@@ -57,5 +50,13 @@
     "peerDependencies": {
         "react": "^15 || ^16"
     },
-    "keywords": ["storybook", "addon", "react", "flow", "editor", "live"]
+    "keywords": [
+        "storybook",
+        "addon",
+        "react",
+        "flow",
+        "editor",
+        "live"
+    ],
+    "private": false
 }
