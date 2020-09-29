@@ -1,0 +1,12 @@
+{
+  "plugins": [
+    "codegen",
+    "transform-object-rest-spread",
+    "transform-class-properties"
+  ],
+  "presets": [
+    "react",
+    "latest",
+    "flow"
+  ]
+}
