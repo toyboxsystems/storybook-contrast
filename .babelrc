@@ -1,12 +1,11 @@
 {
   "plugins": [
-    "codegen",
-    "transform-object-rest-spread",
-    "transform-class-properties"
+      '@babel/plugin-proposal-object-rest-spread', 
+      '@babel/transform-runtime'
   ],
   "presets": [
-    "react",
-    "latest",
-    "flow"
+      '@babel/preset-env', 
+  '@babel/preset-react', 
+  '@babel/preset-typescript',
   ]
 }

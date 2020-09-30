@@ -2,6 +2,7 @@ import React from "react";
 import { addons, types } from "@storybook/addons";
 import { AddonPanel } from "@storybook/components";
 import { useStorybookState } from "@storybook/api";
+import { StoryPanel } from "./StoryPanel";
 
 const ADDON_ID = "myaddon";
 const PANEL_ID = `${ADDON_ID}/panel`;
@@ -19,6 +20,13 @@ const sendState = () => {
     sendMessage({
         type: "storybook_state",
         data: window.contrastStorybookState
+    });
+};
+
+const sendStorySource = source => {
+    sendMessage({
+        type: "storybook_source",
+        data: source
     });
 };
 
@@ -80,6 +88,13 @@ addons.register(ADDON_ID, api => {
         render: ({ active, key }) => {
             return (
                 <AddonPanel active={active} key={key}>
+                    <span style={{ display: "none" }}>
+                        <StoryPanel
+                            key={key}
+                            api={api}
+                            setSource={sendStorySource}
+                        />
+                    </span>
                     <Content />
                 </AddonPanel>
             );
