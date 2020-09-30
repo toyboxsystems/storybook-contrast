@@ -23,10 +23,14 @@ const sendState = () => {
     });
 };
 
-const sendStorySource = source => {
+const setStorySource = source => {
+    window.contrastStorySource = source;
+};
+
+const sendStorySource = () => {
     sendMessage({
         type: "storybook_source",
-        data: source
+        data: window.contrastStorybookState
     });
 };
 
@@ -92,7 +96,7 @@ addons.register(ADDON_ID, api => {
                         <StoryPanel
                             key={key}
                             api={api}
-                            setSource={sendStorySource}
+                            setSource={setStorySource}
                         />
                     </span>
                     <Content />

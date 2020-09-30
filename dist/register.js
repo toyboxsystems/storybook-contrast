@@ -28,10 +28,14 @@ var sendState = function sendState() {
   });
 };
 
-var sendStorySource = function sendStorySource(source) {
+var setStorySource = function setStorySource(source) {
+  window.contrastStorySource = source;
+};
+
+var sendStorySource = function sendStorySource() {
   sendMessage({
     type: "storybook_source",
-    data: source
+    data: window.contrastStorybookState
   });
 };
 
@@ -89,7 +93,6 @@ _addons.addons.register(ADDON_ID, function (api) {
     render: function render(_ref) {
       var active = _ref.active,
           key = _ref.key;
-      console.log("heyyyyy");
       return /*#__PURE__*/_react["default"].createElement(_components.AddonPanel, {
         active: active,
         key: key
@@ -100,7 +103,7 @@ _addons.addons.register(ADDON_ID, function (api) {
       }, /*#__PURE__*/_react["default"].createElement(_StoryPanel.StoryPanel, {
         key: key,
         api: api,
-        setSource: sendStorySource
+        setSource: setStorySource
       })), /*#__PURE__*/_react["default"].createElement(Content, null));
     }
   });
