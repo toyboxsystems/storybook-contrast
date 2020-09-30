@@ -28,6 +28,13 @@ var sendState = function sendState() {
   });
 };
 
+var sendStorySource = function sendStorySource(source) {
+  sendMessage({
+    type: "storybook_source",
+    data: source
+  });
+};
+
 var setup = function setup() {
   console.log("SETUP");
   window.setupContrast = true; // addEventListener support for IE8
@@ -82,16 +89,19 @@ _addons.addons.register(ADDON_ID, function (api) {
     render: function render(_ref) {
       var active = _ref.active,
           key = _ref.key;
+      console.log("heyyyyy");
       return /*#__PURE__*/_react["default"].createElement(_components.AddonPanel, {
         active: active,
         key: key
+      }, /*#__PURE__*/_react["default"].createElement("span", {
+        style: {
+          display: "none"
+        }
       }, /*#__PURE__*/_react["default"].createElement(_StoryPanel.StoryPanel, {
         key: key,
         api: api,
-        setSource: function setSource(source) {
-          return window.storybookSource = source;
-        }
-      }), /*#__PURE__*/_react["default"].createElement(Content, null));
+        setSource: sendStorySource
+      })), /*#__PURE__*/_react["default"].createElement(Content, null));
     }
   });
 });

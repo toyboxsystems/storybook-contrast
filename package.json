@@ -12,7 +12,7 @@
         "lint": "eslint src --ext .js --cache",
         "test": "jest",
         "prepare": "npm run build",
-        "example": "start-storybook -p 3000 -c ./example/.storybook -s ./example"
+        "example": "start-storybook -p 3003 -c ./example/.storybook -s ./example"
     },
     "dependencies": {
         "@babel/preset-typescript": "^7.10.4",
@@ -35,8 +35,6 @@
         "@babel/preset-env": "^7.10.2",
         "@babel/preset-react": "^7.10.1",
         "@babel/preset-typescript": "^7.10.1",
-        "babel-preset-flow": "^6.23.0",
-        "babel-preset-latest": "^6.24.1",
         "enzyme": "^3.6.0",
         "enzyme-adapter-react-16": "^1.5.0",
         "enzyme-to-json": "^3.3.4",

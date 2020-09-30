@@ -228,14 +228,18 @@ var StoryPanel = function StoryPanel(_ref4) {
   };
 
   setSource(source);
-  return story ? /*#__PURE__*/_react["default"].createElement(StyledSyntaxHighlighter, {
+  return story ? /*#__PURE__*/_react["default"].createElement("span", {
+    style: {
+      display: "none"
+    }
+  }, /*#__PURE__*/_react["default"].createElement(StyledSyntaxHighlighter, {
     language: "jsx",
     showLineNumbers: true,
     renderer: lineRenderer,
     format: false,
     copyable: false,
     padded: true
-  }, source) : null;
+  }, source)) : null;
 };
 
 exports.StoryPanel = StoryPanel;
