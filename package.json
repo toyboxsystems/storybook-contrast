@@ -1,6 +1,6 @@
 {
     "name": "storybook-contrast",
-    "version": "0.0.4",
+    "version": "0.1.0",
     "main": "dist/index.js",
     "description": "Contrast storybook integration",
     "repository": "https://github.com/toyboxsystems/storybook-contrast.git",
@@ -12,6 +12,7 @@
         "lint": "eslint src --ext .js --cache",
         "test": "jest",
         "prepare": "npm run build",
+        "watch": "watch 'yarn run build' ./src",
         "example": "start-storybook -p 3003 -c ./example/.storybook -s ./example"
     },
     "dependencies": {
@@ -21,20 +22,21 @@
         "@storybook/api": "^6.0.21",
         "@storybook/components": "^6.0.21",
         "@storybook/react": "6.0.20",
-        "codemirror": "^5.40.0"
+        "codemirror": "^5.40.0",
+        "js-cookie": "^2.2.1"
     },
     "devDependencies": {
         "@babel/cli": "^7.10.1",
         "@babel/core": "^7.10.2",
         "@babel/node": "^7.10.1",
-        "babel-eslint": "^10.1.0",
-        "babel-loader": "^8.1.0",
-        "babel-plugin-styled-components": "^1.10.7",
         "@babel/plugin-proposal-object-rest-spread": "^7.10.1",
         "@babel/plugin-transform-runtime": "^7.10.1",
         "@babel/preset-env": "^7.10.2",
         "@babel/preset-react": "^7.10.1",
         "@babel/preset-typescript": "^7.10.1",
+        "babel-eslint": "^10.1.0",
+        "babel-loader": "^8.1.0",
+        "babel-plugin-styled-components": "^1.10.7",
         "enzyme": "^3.6.0",
         "enzyme-adapter-react-16": "^1.5.0",
         "enzyme-to-json": "^3.3.4",
@@ -48,11 +50,19 @@
         "mensch": "^0.3.3",
         "react": "^16.3.0",
         "react-dom": "^16.5.0",
-        "rimraf": "^2.6.2"
+        "rimraf": "^2.6.2",
+        "watch": "^1.0.2"
     },
     "peerDependencies": {
         "react": "^15 || ^16"
     },
-    "keywords": ["storybook", "addon", "react", "flow", "editor", "live"],
+    "keywords": [
+        "storybook",
+        "addon",
+        "react",
+        "flow",
+        "editor",
+        "live"
+    ],
     "private": false
 }
