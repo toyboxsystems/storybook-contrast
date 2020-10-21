@@ -7,7 +7,8 @@ import { useStorybookState } from "@storybook/api";
 const ADDON_ID = "contrast-app";
 const PANEL_ID = `${ADDON_ID}/panel`;
 
-const SRC = "http://localhost:3000";
+const SRC = "https://work.contrast.app";
+// const SRC = "http://localhost:3000";
 
 window.linkedContrast = false;
 
