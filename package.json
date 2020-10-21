@@ -1,6 +1,6 @@
 {
     "name": "storybook-contrast",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "main": "dist/index.js",
     "description": "Contrast storybook integration",
     "repository": "https://github.com/toyboxsystems/storybook-contrast.git",
@@ -13,7 +13,8 @@
         "test": "jest",
         "prepare": "npm run build",
         "watch": "watch 'yarn run build' ./src",
-        "example": "start-storybook -p 3003 -c ./example/.storybook -s ./example"
+        "example": "start-storybook -p 3003 -c ./example/.storybook -s ./example",
+        "deploy": "NODE_ENV=production yarn run build && yarn publish"
     },
     "dependencies": {
         "@babel/preset-typescript": "^7.10.4",
