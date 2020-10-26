@@ -11,12 +11,16 @@ export default {
 };
 
 export const SingleImage = () => (
-    <div>This story should a single image in the assets panel</div>
+    <div>
+        <h1 style={{ padding: "20px", fontSize: "14px" }}>hello</h1>
+        <p>world</p>
+    </div>
 );
 
 export const DSingleImage = () => (
     <div>
-        <div>This story should a single image in the assets panel</div>
+        <div style={{ padding: "20px", fontSize: "14px" }}>hello</div>
+        <div>world</div>
         <div>This story should a single image in the assets panel</div>
     </div>
 );
