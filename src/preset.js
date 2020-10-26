@@ -13,7 +13,7 @@ function webpack(webpackConfig = {}, options = {}) {
             rules: [
                 ...(module.rules || []),
                 {
-                    test: [/\.(jsx?$|tsx?$)/],
+                    test: [/\.stories\.(jsx?$|tsx?$)/],
                     ...rule,
                     enforce: "pre",
                     use: [

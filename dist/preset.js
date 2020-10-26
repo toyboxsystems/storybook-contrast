@@ -26,7 +26,7 @@ function webpack() {
   return _objectSpread(_objectSpread({}, webpackConfig), {}, {
     module: _objectSpread(_objectSpread({}, module), {}, {
       rules: [].concat((0, _toConsumableArray2["default"])(module.rules || []), [_objectSpread(_objectSpread({
-        test: [/\.(jsx?$|tsx?$)/]
+        test: [/\.stories\.(jsx?$|tsx?$)/]
       }, rule), {}, {
         enforce: "pre",
         use: [{
