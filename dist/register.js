@@ -46,7 +46,7 @@ var sendStory = function sendStory() {
         name: story["name"],
         url: window.location.href,
         urlPath: story["path"],
-        codeSnippet: parameters["storySource"]["source"],
+        codeSnippet: parameters["storySource"] && parameters["storySource"]["source"],
         fileName: parameters["fileName"]
       }
     });
