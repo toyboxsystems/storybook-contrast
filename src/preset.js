@@ -21,7 +21,7 @@ function webpack(webpackConfig = {}, options = {}) {
                             loader: require.resolve("@storybook/source-loader"),
                             options: {
                                 loaderOptions,
-                                injectStoryParameters: true
+                                injectStoryParameters: false
                             }
                         }
                     ]

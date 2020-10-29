@@ -7,8 +7,16 @@ import { useStorybookState } from "@storybook/api";
 const ADDON_ID = "contrast-app";
 const PANEL_ID = `${ADDON_ID}/panel`;
 
-const SRC = "https://work.contrast.app";
-// const SRC = "http://localhost:3000";
+console.log(process.env.NODE_ENV);
+console.log(process.env.IS_DEMO);
+let src =
+    process.env.NODE_ENV === "development"
+        ? "http://localhost:3000"
+        : "https://work.contrast.app";
+
+if (process.env.IS_DEMO) {
+    src = src + "/demo";
+}
 
 window.linkedContrast = false;
 
@@ -29,10 +37,11 @@ const sendState = () => {
 };
 
 const sendStory = () => {
-    const state = useStorybookState();
+    const state = window.contrastStorybookState;
     const story = state["storiesHash"][state["storyId"]];
     if (story && story["parameters"]) {
         const parameters = story["parameters"];
+        console.log({ state, parameters });
         sendMessage({
             type: "storybook_source",
             data: {
@@ -69,7 +78,8 @@ const setup = () => {
 
         // Listen to message from child window
         bindEvent(window, "message", function (e) {
-            if (e.origin === SRC) {
+            console.log(e.origin, src);
+            if (e.origin === src) {
                 const json = JSON.parse(e.data);
 
                 switch (json.type) {
@@ -90,7 +100,7 @@ const Content = () => {
             id="the_iframe"
             width="100%"
             height="100%"
-            src={SRC}
+            src={src}
         />
     );
 };
@@ -100,6 +110,7 @@ addons.register(ADDON_ID, api => {
         type: types.PANEL,
         title: "Contrast",
         render: ({ active, key }) => {
+            window.contrastStorybookState = useStorybookState();
             sendStory();
 
             return (

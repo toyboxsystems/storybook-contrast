@@ -1,7 +1,8 @@
 {
   "plugins": [
       '@babel/plugin-proposal-object-rest-spread', 
-      '@babel/transform-runtime'
+      '@babel/transform-runtime',
+          "transform-inline-environment-variables"
   ],
   "presets": [
       '@babel/preset-env', 

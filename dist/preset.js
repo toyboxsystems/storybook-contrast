@@ -33,7 +33,7 @@ function webpack() {
           loader: require.resolve("@storybook/source-loader"),
           options: {
             loaderOptions: loaderOptions,
-            injectStoryParameters: true
+            injectStoryParameters: false
           }
         }]
       })])

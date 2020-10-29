@@ -14,7 +14,13 @@ var _api = require("@storybook/api");
 
 var ADDON_ID = "contrast-app";
 var PANEL_ID = "".concat(ADDON_ID, "/panel");
-var SRC = "https://work.contrast.app"; // const SRC = "http://localhost:3000";
+console.log("development");
+console.log(undefined);
+var src = "development" === "development" ? "http://localhost:3000" : "https://work.contrast.app";
+
+if (undefined) {
+  src = src + "/demo";
+}
 
 window.linkedContrast = false;
 
@@ -35,11 +41,15 @@ var sendState = function sendState() {
 };
 
 var sendStory = function sendStory() {
-  var state = (0, _api.useStorybookState)();
+  var state = window.contrastStorybookState;
   var story = state["storiesHash"][state["storyId"]];
 
   if (story && story["parameters"]) {
     var parameters = story["parameters"];
+    console.log({
+      state: state,
+      parameters: parameters
+    });
     sendMessage({
       type: "storybook_source",
       data: {
@@ -73,7 +83,9 @@ var setup = function setup() {
     console.log("linked contrast");
     window.linkedContrast = true;
     bindEvent(window, "message", function (e) {
-      if (e.origin === SRC) {
+      console.log(e.origin, src);
+
+      if (e.origin === src) {
         var json = JSON.parse(e.data);
 
         switch (json.type) {
@@ -94,7 +106,7 @@ var Content = function Content() {
     id: "the_iframe",
     width: "100%",
     height: "100%",
-    src: SRC
+    src: src
   });
 };
 
@@ -105,6 +117,7 @@ _addons.addons.register(ADDON_ID, function (api) {
     render: function render(_ref) {
       var active = _ref.active,
           key = _ref.key;
+      window.contrastStorybookState = (0, _api.useStorybookState)();
       sendStory();
       return /*#__PURE__*/_react["default"].createElement(_components.AddonPanel, {
         active: active,
