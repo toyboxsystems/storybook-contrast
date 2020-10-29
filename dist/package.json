@@ -1,6 +1,6 @@
 {
     "name": "storybook-contrast",
-    "version": "0.2.0",
+    "version": "0.2.1",
     "main": "dist/index.js",
     "description": "Contrast storybook integration",
     "repository": "https://github.com/toyboxsystems/storybook-contrast.git",
@@ -8,11 +8,13 @@
     "author": "Contrast <support@contrast.app>",
     "scripts": {
         "clean": "rimraf dist",
-        "dev": "npm run clean && babel src --ignore src/__tests__,src/__mocks__ --out-dir dist -s --extensions \".js,.jsx,.ts,.tsx\" ",
+        "dev": "npm run clean && NODE_ENV=development babel src --ignore src/__tests__,src/__mocks__ --out-dir dist -s --extensions \".js,.jsx,.ts,.tsx\" ",
+        "prod": "npm run clean && NODE_ENV=production babel src --ignore src/__tests__,src/__mocks__ --out-dir dist -s --extensions \".js,.jsx,.ts,.tsx\" ",
         "lint": "eslint src --ext .js --cache",
         "test": "jest",
         "watch": "watch 'yarn run dev' ./src",
-        "example": "start-storybook -p 3003 -c ./example/.storybook -s ./example"
+        "example": "start-storybook -p 3003 -c ./example/.storybook -s ./example",
+        "demo": "IS_DEMO=true start-storybook -p 3003 -c ./example/.storybook -s ./example"
     },
     "dependencies": {
         "@babel/preset-typescript": "^7.10.4",
@@ -39,6 +41,7 @@
         "babel-eslint": "^10.1.0",
         "babel-loader": "^8.1.0",
         "babel-plugin-styled-components": "^1.10.7",
+        "babel-plugin-transform-inline-environment-variables": "^0.4.3",
         "enzyme": "^3.6.0",
         "enzyme-adapter-react-16": "^1.5.0",
         "enzyme-to-json": "^3.3.4",
