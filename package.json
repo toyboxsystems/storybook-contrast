@@ -1,6 +1,6 @@
 {
     "name": "storybook-contrast",
-    "version": "0.2.1",
+    "version": "0.3.0",
     "main": "dist/index.js",
     "description": "Contrast storybook integration",
     "repository": "https://github.com/toyboxsystems/storybook-contrast.git",
@@ -62,6 +62,13 @@
     "peerDependencies": {
         "react": "^15 || ^16"
     },
-    "keywords": ["storybook", "addon", "react", "flow", "editor", "live"],
+    "keywords": [
+        "storybook",
+        "addon",
+        "react",
+        "flow",
+        "editor",
+        "live"
+    ],
     "private": false
 }
