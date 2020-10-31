@@ -9,6 +9,7 @@
     "scripts": {
         "clean": "rimraf dist",
         "dev": "npm run clean && NODE_ENV=development babel src --ignore src/__tests__,src/__mocks__ --out-dir dist -s --extensions \".js,.jsx,.ts,.tsx\" ",
+        "demo": "npm run clean && NODE_ENV=development IS_DEMO=true babel src --ignore src/__tests__,src/__mocks__ --out-dir dist -s --extensions \".js,.jsx,.ts,.tsx\" ",
         "prod": "npm run clean && NODE_ENV=production babel src --ignore src/__tests__,src/__mocks__ --out-dir dist -s --extensions \".js,.jsx,.ts,.tsx\" ",
         "lint": "eslint src --ext .js --cache",
         "test": "jest",

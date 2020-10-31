@@ -8,17 +8,19 @@ const ADDON_ID = "contrast-app";
 const PANEL_ID = `${ADDON_ID}/panel`;
 
 console.log(process.env.NODE_ENV);
-console.log(process.env.IS_DEMO);
+
 let src =
     process.env.NODE_ENV === "development" ||
     localStorage.getItem("contrast-env") === "development"
         ? "http://localhost:3000"
         : "https://work.contrast.app";
 
-if (process.env.IS_DEMO) {
+if (
+    window.location.href.includes("storybook.contrast.app") ||
+    process.env.IS_DEMO
+) {
     src = src + "/demo";
 }
-
 window.linkedContrast = false;
 
 const sendMessage = json => {
