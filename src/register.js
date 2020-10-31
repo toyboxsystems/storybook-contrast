@@ -10,7 +10,8 @@ const PANEL_ID = `${ADDON_ID}/panel`;
 console.log(process.env.NODE_ENV);
 console.log(process.env.IS_DEMO);
 let src =
-    process.env.NODE_ENV === "development"
+    process.env.NODE_ENV === "development" ||
+    localStorage.getItem("contrast-env") === "development"
         ? "http://localhost:3000"
         : "https://work.contrast.app";
 
