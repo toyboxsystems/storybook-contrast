@@ -12,8 +12,8 @@ export default {
 
 export const SingleImage = () => (
     <div>
-        <h1 style={{ padding: "20px", fontSize: "14px" }}>hello</h1>
-        <p>world</p>
+        <h1 style={{ padding: "20px", fontSize: "12px" }}>hello</h1>
+        <p style={{ padding: "20px", fontSize: "12px" }}>world</p>
     </div>
 );
 
