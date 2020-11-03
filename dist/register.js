@@ -15,6 +15,7 @@ var _api = require("@storybook/api");
 var ADDON_ID = "contrast-app";
 var PANEL_ID = "".concat(ADDON_ID, "/panel");
 console.log("production");
+<<<<<<< HEAD
 console.log(undefined);
 var src =
     "production" === "development" ||
@@ -24,6 +25,12 @@ var src =
 
 if (window.location.href.includes("storybook.contrast.app") || undefined) {
     src = src + "/demo";
+=======
+var src = "production" === "development" || localStorage.getItem("contrast-env") === "development" ? "http://localhost:3000" : "https://work.contrast.app";
+
+if (window.location.href.includes("demo.contrast.app") || undefined) {
+  src = src + "/demo";
+>>>>>>> use demo in dev
 }
 
 window.linkedContrast = false;

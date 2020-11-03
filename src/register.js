@@ -16,8 +16,9 @@ let src =
         : "https://work.contrast.app";
 
 if (
-    window.location.href.includes("storybook.contrast.app") ||
-    process.env.IS_DEMO
+    window.location.href.includes("demo.contrast.app") ||
+    process.env.IS_DEMO ||
+    localStorage.getItem("contrast-demo")
 ) {
     src = src + "/demo";
 }
