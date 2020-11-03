@@ -64,13 +64,6 @@
     "peerDependencies": {
         "react": "^15 || ^16"
     },
-    "keywords": [
-        "storybook",
-        "addon",
-        "react",
-        "flow",
-        "editor",
-        "live"
-    ],
+    "keywords": ["storybook", "addon", "react", "flow", "editor", "live"],
     "private": false
 }
