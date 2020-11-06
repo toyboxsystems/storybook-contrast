@@ -1,10 +1,14 @@
 {
     "name": "storybook-contrast",
 <<<<<<< HEAD
+<<<<<<< HEAD
     "version": "0.11.1",
 =======
     "version": "0.7.1",
 >>>>>>> v0.7.1
+=======
+    "version": "0.8.0",
+>>>>>>> msgs
     "main": "dist/index.js",
     "description": "Contrast storybook integration",
     "repository": "https://github.com/toyboxsystems/storybook-contrast.git",

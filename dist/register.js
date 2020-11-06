@@ -82,6 +82,7 @@ var setStorySource = function setStorySource(source) {
 };
 
 var setup = function setup() {
+<<<<<<< HEAD
     if (!window.linkedContrast) {
         // addEventListener support for IE8
         var bindEvent = function bindEvent(element, eventName, eventHandler) {
@@ -110,6 +111,35 @@ var setup = function setup() {
             }
         });
     }
+=======
+  if (!window.linkedContrast) {
+    // addEventListener support for IE8
+    var bindEvent = function bindEvent(element, eventName, eventHandler) {
+      if (element.addEventListener) {
+        element.addEventListener(eventName, eventHandler, false);
+      } else if (element.attachEvent) {
+        element.attachEvent("on" + eventName, eventHandler);
+      }
+    }; // Listen to message from child window
+
+
+    console.log("linked contrast");
+    window.linkedContrast = true;
+    bindEvent(window, "message", function (e) {
+      if (_lodash["default"].get(e, "data")) {
+        var json = JSON.parse(e.data);
+
+        switch (json.type) {
+          case "get_story":
+            return sendStory();
+
+          case "get_state":
+            return sendState();
+        }
+      }
+    });
+  }
+>>>>>>> msgs
 };
 
 var Content = function Content() {

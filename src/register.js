@@ -83,14 +83,16 @@ const setup = () => {
         // Listen to message from child window
         bindEvent(window, "message", function (e) {
             if (_.get(e, "data")) {
-                const json = JSON.parse(e.data);
+                try {
+                    const json = JSON.parse(e.data);
 
-                switch (json.type) {
-                    case "get_story":
-                        return sendStory();
-                    case "get_state":
-                        return sendState();
-                }
+                    switch (json.type) {
+                        case "get_story":
+                            return sendStory();
+                        case "get_state":
+                            return sendState();
+                    }
+                } catch {}
             }
         });
     }
