@@ -15,6 +15,7 @@ var _api = require("@storybook/api");
 var ADDON_ID = "contrast-app";
 var PANEL_ID = "".concat(ADDON_ID, "/panel");
 <<<<<<< HEAD
+<<<<<<< HEAD
 console.log("production");
 <<<<<<< HEAD
 console.log(undefined);
@@ -32,6 +33,13 @@ var src = "production" === "development" || localStorage.getItem("contrast-env")
 console.log("development");
 var src = "development" === "development" || localStorage.getItem("contrast-env") === "development" ? "https://contrast.ngrok.io" : "https://work.contrast.app";
 >>>>>>> point dev to ngrok
+=======
+var src = "development" === "development" || localStorage.getItem("contrast-env") === "development" ? "http://localhost:3000" : "https://work.contrast.app";
+
+if (localStorage.getItem("contrast-ngrok")) {
+  src = "https://contrast.ngrok.io";
+}
+>>>>>>> scrolling and ngrok
 
 if (window.location.href.includes("demo.contrast.app") || undefined || localStorage.getItem("contrast-demo")) {
   src = src + "/demo";
@@ -39,6 +47,8 @@ if (window.location.href.includes("demo.contrast.app") || undefined || localStor
 }
 
 window.linkedContrast = false;
+console.log("development");
+console.log(src);
 
 var sendMessage = function sendMessage(json) {
     // Make sure you are sending a string, and to stringify JSON
@@ -152,6 +162,7 @@ var setup = function setup() {
 };
 
 var Content = function Content() {
+<<<<<<< HEAD
     return /*#__PURE__*/ _react["default"].createElement("iframe", {
         onLoad: setup,
         id: "the_iframe",
@@ -159,6 +170,19 @@ var Content = function Content() {
         height: "100%",
         src: src
     });
+=======
+  return /*#__PURE__*/_react["default"].createElement("iframe", {
+    onLoad: setup,
+    id: "the_iframe",
+    width: "100%",
+    style: {
+      border: "none",
+      maxHeight: "calc(100% - 5px)",
+      minHeight: "calc(100% - 5px)"
+    },
+    src: src
+  });
+>>>>>>> scrolling and ngrok
 };
 
 _addons.addons.register(ADDON_ID, function (api) {

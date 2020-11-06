@@ -7,13 +7,15 @@ import { useStorybookState } from "@storybook/api";
 const ADDON_ID = "contrast-app";
 const PANEL_ID = `${ADDON_ID}/panel`;
 
-console.log(process.env.NODE_ENV);
-
 let src =
     process.env.NODE_ENV === "development" ||
     localStorage.getItem("contrast-env") === "development"
-        ? "https://contrast.ngrok.io"
+        ? "http://localhost:3000"
         : "https://work.contrast.app";
+
+if (localStorage.getItem("contrast-ngrok")) {
+    src = "https://contrast.ngrok.io";
+}
 
 if (
     window.location.href.includes("demo.contrast.app") ||
@@ -23,6 +25,9 @@ if (
     src = src + "/demo";
 }
 window.linkedContrast = false;
+
+console.log(process.env.NODE_ENV);
+console.log(src);
 
 const sendMessage = json => {
     // Make sure you are sending a string, and to stringify JSON
@@ -105,7 +110,11 @@ const Content = () => {
             onLoad={setup}
             id="the_iframe"
             width="100%"
-            height="100%"
+            style={{
+                border: "none",
+                maxHeight: "calc(100% - 5px)",
+                minHeight: "calc(100% - 5px)"
+            }}
             src={src}
         />
     );
