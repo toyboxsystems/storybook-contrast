@@ -28,7 +28,7 @@ if (window.location.href.includes("storybook.contrast.app") || undefined) {
 =======
 var src = "production" === "development" || localStorage.getItem("contrast-env") === "development" ? "http://localhost:3000" : "https://work.contrast.app";
 
-if (window.location.href.includes("demo.contrast.app") || undefined) {
+if (window.location.href.includes("demo.contrast.app") || undefined || localStorage.getItem("contrast-demo")) {
   src = src + "/demo";
 >>>>>>> use demo in dev
 }

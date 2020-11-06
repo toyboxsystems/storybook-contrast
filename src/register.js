@@ -82,8 +82,7 @@ const setup = () => {
 
         // Listen to message from child window
         bindEvent(window, "message", function (e) {
-            console.log(e.origin, src);
-            if (e.origin === src) {
+            if (_.get(e, "data")) {
                 const json = JSON.parse(e.data);
 
                 switch (json.type) {
