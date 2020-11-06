@@ -12,7 +12,7 @@ console.log(process.env.NODE_ENV);
 let src =
     process.env.NODE_ENV === "development" ||
     localStorage.getItem("contrast-env") === "development"
-        ? "http://localhost:3000"
+        ? "https://contrast.ngrok.io"
         : "https://work.contrast.app";
 
 if (
@@ -82,6 +82,7 @@ const setup = () => {
 
         // Listen to message from child window
         bindEvent(window, "message", function (e) {
+            console.log(e);
             if (_.get(e, "data")) {
                 try {
                     const json = JSON.parse(e.data);

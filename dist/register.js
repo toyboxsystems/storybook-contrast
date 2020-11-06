@@ -14,6 +14,7 @@ var _api = require("@storybook/api");
 
 var ADDON_ID = "contrast-app";
 var PANEL_ID = "".concat(ADDON_ID, "/panel");
+<<<<<<< HEAD
 console.log("production");
 <<<<<<< HEAD
 console.log(undefined);
@@ -27,6 +28,10 @@ if (window.location.href.includes("storybook.contrast.app") || undefined) {
     src = src + "/demo";
 =======
 var src = "production" === "development" || localStorage.getItem("contrast-env") === "development" ? "http://localhost:3000" : "https://work.contrast.app";
+=======
+console.log("development");
+var src = "development" === "development" || localStorage.getItem("contrast-env") === "development" ? "https://contrast.ngrok.io" : "https://work.contrast.app";
+>>>>>>> point dev to ngrok
 
 if (window.location.href.includes("demo.contrast.app") || undefined || localStorage.getItem("contrast-demo")) {
   src = src + "/demo";
@@ -126,16 +131,20 @@ var setup = function setup() {
     console.log("linked contrast");
     window.linkedContrast = true;
     bindEvent(window, "message", function (e) {
+      console.log(e);
+
       if (_lodash["default"].get(e, "data")) {
-        var json = JSON.parse(e.data);
+        try {
+          var json = JSON.parse(e.data);
 
-        switch (json.type) {
-          case "get_story":
-            return sendStory();
+          switch (json.type) {
+            case "get_story":
+              return sendStory();
 
-          case "get_state":
-            return sendState();
-        }
+            case "get_state":
+              return sendState();
+          }
+        } catch (_unused) {}
       }
     });
   }
