@@ -2,7 +2,9 @@
 
 This addon is used to show [Contrast](https://www.contrast.app) handoff tool in the addon panel.
 
-[Demo](https://s3.amazonaws.com/demo.contrast.app/index.html?path=/story/demo--basic)
+## Demo
+[Check out a demo here :)](https://s3.amazonaws.com/demo.contrast.app/index.html?path=/story/demo--basic)
+
 ![Demo](http://contrast-prod.s3.amazonaws.com/demo.png)
 
 - [Getting Started](#getting-started)
