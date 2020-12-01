@@ -20,6 +20,7 @@
     "dependencies": {
         "@babel/preset-typescript": "^7.10.4",
         "@babel/standalone": "^7.0.0",
+        "@storybook/addon-essentials": "^6.1.5",
         "@storybook/addons": "^6.0.21",
         "@storybook/api": "^6.0.21",
         "@storybook/components": "^6.0.21",
