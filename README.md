@@ -33,6 +33,14 @@ module.exports = {
 };
 ```
 
+### Diff Beta
+
+Add this snippet tag to your preview-head.html file to your .storybook config folder. More info on preview-head [here]( https://storybook.js.org/docs/react/configure/story-rendering#adding-to-head)
+
+```html
+<script src="http://contrast-snippet.s3.amazonaws.com/contrast-snippet.js"></script>
+```
+
 ## Support
 Questions or feedback? 
 You can reach us at support@contrast.app or through chat in the app.
