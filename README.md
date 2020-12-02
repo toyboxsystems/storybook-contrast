@@ -41,6 +41,8 @@ Add this snippet tag to your preview-head.html file to your .storybook config fo
 <script src="http://contrast-snippet.s3.amazonaws.com/contrast-snippet.js"></script>
 ```
 
+If you haven't already signed into Contrast via the addon you will need to do so and then refresh for Diff to start working.
+
 ## Support
 Questions or feedback? 
 You can reach us at support@contrast.app or through chat in the app.
