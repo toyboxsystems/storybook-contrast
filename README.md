@@ -33,12 +33,12 @@ module.exports = {
 };
 ```
 
-### Diff Beta
+### Diff Feature
 
 Add this snippet tag to your preview-head.html file to your .storybook config folder. More info on preview-head [here]( https://storybook.js.org/docs/react/configure/story-rendering#adding-to-head)
 
 ```html
-<script src="http://contrast-snippet.s3.amazonaws.com/contrast-snippet.js"></script>
+<script id="contrast-snippet" src="http://contrast-snippet.s3.amazonaws.com/contrast-snippet.js"></script>
 ```
 
 If you haven't already signed into Contrast via the addon you will need to do so and then refresh for Diff to start working.
