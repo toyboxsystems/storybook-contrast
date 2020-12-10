@@ -26,9 +26,6 @@ if (
 }
 window.linkedContrast = false;
 
-console.log(process.env.NODE_ENV);
-console.log(src);
-
 const sendMessage = json => {
     // Make sure you are sending a string, and to stringify JSON
 
@@ -50,7 +47,6 @@ const sendStory = () => {
     const story = state["storiesHash"][state["storyId"]];
     if (story && story["parameters"]) {
         const parameters = story["parameters"];
-        console.log({ state, parameters });
         sendMessage({
             type: "storybook_source",
             data: {
@@ -73,7 +69,6 @@ const setStorySource = source => {
 
 const setup = () => {
     if (!window.linkedContrast) {
-        console.log("linked contrast");
         window.linkedContrast = true;
 
         // addEventListener support for IE8
@@ -87,7 +82,6 @@ const setup = () => {
 
         // Listen to message from child window
         bindEvent(window, "message", function (e) {
-            console.log(e);
             if (_.get(e, "data")) {
                 try {
                     const json = JSON.parse(e.data);
