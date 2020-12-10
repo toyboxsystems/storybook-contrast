@@ -28,13 +28,13 @@ module.exports = {
 };
 ```
 
-3) Add script tag to your `.storybook/preview-head.html`
+3) Add script tag to your `.storybook/preview-head.html`.  More info on preview-head [here]( https://storybook.js.org/docs/react/configure/story-rendering#adding-to-head)
+
 
 
 ```html
 <script id="contrast-snippet" src="http://contrast-snippet.s3.amazonaws.com/contrast-snippet.js"></script>
 ```
- More info on preview-head [here]( https://storybook.js.org/docs/react/configure/story-rendering#adding-to-head)
 
 
 4) Open Contrast Addon in Storybook
