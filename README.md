@@ -3,7 +3,7 @@
 This addon is used to show [Contrast](https://www.contrast.app) handoff tool in the addon panel.
 
 ## Demo
-[Check out a demo here :)](https://s3.amazonaws.com/demo.contrast.app/index.html?path=/story/demo--basic)
+[Check out a demo here :)](https://contrastapp.wistia.com/medias/w71tocgxnm)
 
 ![Demo](http://contrast-prod.s3.amazonaws.com/demo.png)
 
