@@ -14,18 +14,13 @@ This addon is used to show [Contrast](https://www.contrast.app) handoff tool in 
 
 ## Getting Started
 
-First, install the addon
+1) Install the Addon
 
 ```sh
 yarn add storybook-contrast
 ```
 
-You can add configuration for this addon by using a preset
-
-
-### Install using preset
-
-Add the following to your `.storybook/main.js` exports:
+2) Add the following to your `.storybook/main.js` exports:
 
 ```js
 module.exports = {
@@ -33,15 +28,16 @@ module.exports = {
 };
 ```
 
-### Diff Feature
+3) Add script tag to your `.storybook/preview-head.html`
 
-Add this snippet tag to your preview-head.html file to your .storybook config folder. More info on preview-head [here]( https://storybook.js.org/docs/react/configure/story-rendering#adding-to-head)
 
 ```html
 <script id="contrast-snippet" src="http://contrast-snippet.s3.amazonaws.com/contrast-snippet.js"></script>
 ```
+ More info on preview-head [here]( https://storybook.js.org/docs/react/configure/story-rendering#adding-to-head)
 
-If you haven't already signed into Contrast via the addon you will need to do so and then refresh for Diff to start working.
+
+4) Open Contrast Addon in Storybook
 
 ## Support
 Questions or feedback? 
