@@ -7,18 +7,23 @@ import { useStorybookState } from "@storybook/api";
 const ADDON_ID = "contrast-app";
 const PANEL_ID = `${ADDON_ID}/panel`;
 
-console.log(process.env.NODE_ENV);
-console.log(process.env.IS_DEMO);
 let src =
     process.env.NODE_ENV === "development" ||
     localStorage.getItem("contrast-env") === "development"
         ? "http://localhost:3000"
         : "https://work.contrast.app";
 
-if (process.env.IS_DEMO) {
-    src = src + "/demo";
+if (localStorage.getItem("contrast-ngrok")) {
+    src = "https://contrast.ngrok.io";
 }
 
+if (
+    window.location.href.includes("demo.contrast.app") ||
+    process.env.IS_DEMO ||
+    localStorage.getItem("contrast-demo")
+) {
+    src = src + "/demo";
+}
 window.linkedContrast = false;
 
 const sendMessage = json => {
@@ -42,7 +47,6 @@ const sendStory = () => {
     const story = state["storiesHash"][state["storyId"]];
     if (story && story["parameters"]) {
         const parameters = story["parameters"];
-        console.log({ state, parameters });
         sendMessage({
             type: "storybook_source",
             data: {
@@ -65,7 +69,6 @@ const setStorySource = source => {
 
 const setup = () => {
     if (!window.linkedContrast) {
-        console.log("linked contrast");
         window.linkedContrast = true;
 
         // addEventListener support for IE8
@@ -79,16 +82,17 @@ const setup = () => {
 
         // Listen to message from child window
         bindEvent(window, "message", function (e) {
-            console.log(e.origin, src);
-            if (e.origin === src) {
-                const json = JSON.parse(e.data);
+            if (_.get(e, "data")) {
+                try {
+                    const json = JSON.parse(e.data);
 
-                switch (json.type) {
-                    case "get_story":
-                        return sendStory();
-                    case "get_state":
-                        return sendState();
-                }
+                    switch (json.type) {
+                        case "get_story":
+                            return sendStory();
+                        case "get_state":
+                            return sendState();
+                    }
+                } catch {}
             }
         });
     }
@@ -100,7 +104,11 @@ const Content = () => {
             onLoad={setup}
             id="the_iframe"
             width="100%"
-            height="100%"
+            style={{
+                border: "none",
+                maxHeight: "calc(100% - 5px)",
+                minHeight: "calc(100% - 5px)"
+            }}
             src={src}
         />
     );

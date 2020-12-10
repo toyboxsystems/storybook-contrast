@@ -9,6 +9,7 @@
     "scripts": {
         "clean": "rimraf dist",
         "dev": "npm run clean && NODE_ENV=development babel src --ignore src/__tests__,src/__mocks__ --out-dir dist -s --extensions \".js,.jsx,.ts,.tsx\" ",
+        "demo": "npm run clean && NODE_ENV=development IS_DEMO=true babel src --ignore src/__tests__,src/__mocks__ --out-dir dist -s --extensions \".js,.jsx,.ts,.tsx\" ",
         "prod": "npm run clean && NODE_ENV=production babel src --ignore src/__tests__,src/__mocks__ --out-dir dist -s --extensions \".js,.jsx,.ts,.tsx\" ",
         "lint": "eslint src --ext .js --cache",
         "test": "jest",
@@ -28,7 +29,8 @@
         "@storybook/source-loader": "^6.0.26",
         "codemirror": "^5.40.0",
         "js-cookie": "^2.2.1",
-        "lodash": "^4.17.20"
+        "lodash": "^4.17.20",
+        "styled-components": "^5.2.1"
     },
     "devDependencies": {
         "@babel/cli": "^7.10.1",
@@ -63,13 +65,6 @@
     "peerDependencies": {
         "react": "^15 || ^16"
     },
-    "keywords": [
-        "storybook",
-        "addon",
-        "react",
-        "flow",
-        "editor",
-        "live"
-    ],
+    "keywords": ["storybook", "addon", "react", "flow", "editor", "live"],
     "private": false
 }

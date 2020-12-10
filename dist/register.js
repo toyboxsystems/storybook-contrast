@@ -14,11 +14,13 @@ var _api = require("@storybook/api");
 
 var ADDON_ID = "contrast-app";
 var PANEL_ID = "".concat(ADDON_ID, "/panel");
-console.log("production");
-console.log(undefined);
-var src = "production" === "development" || localStorage.getItem("contrast-env") === "development" ? "http://localhost:3000" : "https://work.contrast.app";
+var src = "development" === "development" || localStorage.getItem("contrast-env") === "development" ? "http://localhost:3000" : "https://work.contrast.app";
 
-if (undefined) {
+if (localStorage.getItem("contrast-ngrok")) {
+  src = "https://contrast.ngrok.io";
+}
+
+if (window.location.href.includes("demo.contrast.app") || undefined || localStorage.getItem("contrast-demo")) {
   src = src + "/demo";
 }
 
@@ -46,10 +48,6 @@ var sendStory = function sendStory() {
 
   if (story && story["parameters"]) {
     var parameters = story["parameters"];
-    console.log({
-      state: state,
-      parameters: parameters
-    });
     sendMessage({
       type: "storybook_source",
       data: {
@@ -80,21 +78,20 @@ var setup = function setup() {
     }; // Listen to message from child window
 
 
-    console.log("linked contrast");
     window.linkedContrast = true;
     bindEvent(window, "message", function (e) {
-      console.log(e.origin, src);
+      if (_lodash["default"].get(e, "data")) {
+        try {
+          var json = JSON.parse(e.data);
 
-      if (e.origin === src) {
-        var json = JSON.parse(e.data);
+          switch (json.type) {
+            case "get_story":
+              return sendStory();
 
-        switch (json.type) {
-          case "get_story":
-            return sendStory();
-
-          case "get_state":
-            return sendState();
-        }
+            case "get_state":
+              return sendState();
+          }
+        } catch (_unused) {}
       }
     });
   }
@@ -105,7 +102,11 @@ var Content = function Content() {
     onLoad: setup,
     id: "the_iframe",
     width: "100%",
-    height: "100%",
+    style: {
+      border: "none",
+      maxHeight: "calc(100% - 5px)",
+      minHeight: "calc(100% - 5px)"
+    },
     src: src
   });
 };

@@ -1,4 +1,5 @@
 import * as React from "react";
+import Card from "./Card";
 
 export default {
     title: "Addons/Design assets",
@@ -10,23 +11,18 @@ export default {
     }
 };
 
-export const SingleImage = () => (
-    <div>
+export const Example = () => (
+    <Card>
         <h1 style={{ padding: "20px", fontSize: "14px" }}>hello</h1>
         <p>world</p>
-    </div>
+    </Card>
 );
 
-export const DSingleImage = () => (
-    <div>
-        <div style={{ padding: "20px", fontSize: "14px" }}>hello</div>
-        <div>world</div>
-        <div>This story should a single image in the assets panel</div>
-    </div>
+export const Example2 = () => (
+    <Card>
+        <p>world</p>
+        <p>world</p>
+        <p>world</p>
+        <p>world</p>
+    </Card>
 );
-
-SingleImage.storyName = "single image";
-
-SingleImage.parameters = {
-    assets: ["https://via.placeholder.com/300/09f/fff.png"]
-};
