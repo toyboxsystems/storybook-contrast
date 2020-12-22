@@ -2,7 +2,7 @@
     "name": "storybook-contrast",
     "version": "0.11.2",
     "main": "dist/index.js",
-    "description": "Contrast storybook integration",
+    "description": "Contrast is a Storybook Addon that automatically tells you the difference between your code and Figma designs. It's like a spell-checker for UI.",
     "repository": "https://github.com/toyboxsystems/storybook-contrast.git",
     "license": "MIT",
     "author": "Contrast <support@contrast.app>",

@@ -41,8 +41,13 @@ function webpack() {
   });
 }
 
+function previewHead(head) {
+  return "\n    ".concat(head, "\n    <style>\n      body {\n        background-color: yellow;\n      }\n    </style>\n  ");
+}
+
 module.exports = {
   webpack: webpack,
-  managerEntries: managerEntries
+  managerEntries: managerEntries,
+  previewHead: previewHead
 };
 //# sourceMappingURL=preset.js.map
