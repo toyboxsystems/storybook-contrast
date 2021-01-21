@@ -8,7 +8,7 @@ This addon is used to show [Contrast](https://www.contrast.app) handoff tool in 
 
 [Check out a demo here :)](https://contrastapp.wistia.com/medias/w71tocgxnm)
 
-![Demo](http://contrast-prod.s3.amazonaws.com/demo.png)
+![Demo](https://contrast-prod.s3.amazonaws.com/demo.png)
 
 -   [Getting Started](#getting-started)
     -   [Install using preset](#install-using-preset)
